@@ -1,0 +1,1 @@
+const b=document.getElementById("hamb"),m=document.getElementById("menu");if(b)b.onclick=()=>m.classList.toggle("open");document.querySelectorAll(".menu a").forEach(a=>a.onclick=()=>m.classList.remove("open"));document.querySelectorAll(".year").forEach(x=>x.textContent=new Date().getFullYear());
