@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>যোগাযোগ</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .contact-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+  }
+  .contact-container h1 {
+    color: #2e7d32;
+    margin-bottom: 20px;
+  }
+  .contact-info {
+    margin-bottom: 30px;
+    line-height: 1.8;
+  }
+  .contact-form label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1rem;
+  }
+  .contact-form textarea {
+    min-height: 120px;
+    resize: vertical;
+  }
+  .contact-form button {
+    margin-top: 20px;
+    padding: 12px 30px;
+    background-color: #2e7d32;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  .contact-form button:hover {
+    background-color: #1b5e20;
+  }
+</style>
+</head>
+<body>
+
+<div class="contact-container">
+  <h1>যোগাযোগ করুন</h1>
+
+  <div class="contact-info">
+    <p><strong>ইমেইল:</strong> youremail@example.com</p>
+    <p><strong>ফোন:</strong> +880-XXX-XXXXXXX</p>
+    <p><strong>ঠিকানা:</strong> আপনার ঠিকানা এখানে লিখুন</p>
+  </div>
+
+  <!-- নোট: এই ফর্ম কাজ করাতে Formspree, Netlify Forms বা এমন কোনো সার্ভিস ব্যবহার করতে হবে,
+       কারণ GitHub Pages স্ট্যাটিক হোস্টিং, নিজে থেকে ফর্ম প্রসেস করতে পারে না। -->
+  <form class="contact-form" action="https://formspree.io/f/yourFormID" method="POST">
+    <label for="name">নাম</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">ইমেইল</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="message">বার্তা</label>
+    <textarea id="message" name="message" required></textarea>
+
+    <button type="submit">পাঠান</button>
+  </form>
+</div>
+
+</body>
+</html>
