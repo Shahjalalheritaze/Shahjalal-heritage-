@@ -1,0 +1,19 @@
+# System files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+
+# Node (যদি ভবিষ্যতে ব্যবহার করেন)
+node_modules/
+npm-debug.log
+
+# Environment / secrets
+.env
+
+# Backup files
+*.bak
+*~
