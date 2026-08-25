@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="হযরত শাহজালাল (রহ.)-এর দরগাহ, সিলেট ও ইসলামী ঐতিহ্য সম্পর্কিত সর্বশেষ সংবাদ।">
+<meta name="theme-color" content="#14392a">
+<title>লেটেস্ট নিউজ | হযরত শাহজালাল (রহ.)</title>
+
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="favicon.ico">
+
+<style>
+.news-hero {
+  background: linear-gradient(rgba(10,40,25,.88), rgba(10,40,25,.88));
+  color: #f5d67e;
+  text-align: center;
+  padding: 42px 20px;
+}
+.news-hero h1 { margin: 0 0 10px; color: #f5d67e; font-size: 2rem; }
+.news-hero p { margin: 0; color: #fff; }
+
+.news-container {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+.news-status {
+  background: #fff;
+  border: 1px solid #d9c78a;
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin-bottom: 22px;
+  text-align: center;
+  color: #555;
+}
+.news-card {
+  background: #fff;
+  border: 1px solid #d9c78a;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.08);
+}
+.news-card h2 {
+  color: #14392a;
+  margin: 6px 0 10px;
+  font-size: 1.3rem;
+}
+.news-date {
+  color: #8a7b3f;
+  font-size: .9rem;
+  display: block;
+}
+.news-card p {
+  color: #333;
+  line-height: 1.7;
+  margin: 10px 0 16px;
+}
+.news-link {
+  display: inline-block;
+  background: #14392a;
+  color: #fff;
+  text-decoration: none;
+  padding: 9px 16px;
+  border-radius: 7px;
+  font-weight: 600;
+}
+.news-link:hover { opacity: .88; }
+.news-source {
+  font-size: .85rem;
+  color: #777;
+  margin-top: 12px;
+}
+.news-loading { color: #555; }
+.news-error { color: #9b1c1c; }
+
+@media (max-width: 600px) {
+  .news-hero { padding: 32px 16px; }
+  .news-hero h1 { font-size: 1.65rem; }
+  .news-container { width: 94%; padding: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="top-bar">
+    بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+    <span class="tagline">জীবন • ইতিহাস • ঐতিহ্য</span>
+  </div>
+
+  <div class="main-nav">
+    <div class="logo-title">
+      <span class="allah-icon">الله</span>
+      <div>
+        <h2>হযরত শাহজালাল (রহ.)</h2>
+        <p>জীবন ও ঐতিহ্য</p>
+      </div>
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="index.html">হোম</a></li>
+        <li><a href="biography.html">জীবনী</a></li>
+        <li><a href="history.html">ইতিহাস</a></li>
+        <li><a href="gallery.html">গ্যালারি</a></li>
+        <li><a href="news.html">লেটেস্ট নিউজ</a></li>
+        <li><a href="culture.html">সংস্কৃতি</a></li>
+        <li><a href="documents.html">নথিপত্র</a></li>
+        <li><a href="sources.html">সূত্র</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="news-hero">
+  <h1>লেটেস্ট নিউজ</h1>
+  <p>দরগাহ, সিলেট ও ইসলামী ঐতিহ্য সম্পর্কিত সাম্প্রতিক সংবাদ</p>
+</section>
+
+<main class="news-container">
+
+  <div id="news-status" class="news-status">
+    <span class="news-loading">সাম্প্রতিক সংবাদ লোড হচ্ছে...</span>
+  </div>
+
+  <section id="news-list" aria-live="polite"></section>
+
+</main>
+
+<footer class="site-footer">
+  <p>&copy; ২০২৬ হযরত শাহজালাল (রহ.) — জীবন ও ঐতিহ্য। সর্বস্বত্ব সংরক্ষিত।</p>
+</footer>
+
+<script>
+/*
+  SMART LATEST NEWS
+  GitHub Pages-এর জন্য RSS-to-JSON ব্যবহার করা হয়েছে।
+  Search: Hazrat Shahjalal + Sylhet
+*/
+
+const RSS_URL =
+  "https://news.google.com/rss/search?q=Hazrat+Shahjalal+Sylhet&hl=bn&gl=BD&ceid=BD:bn";
+
+const API_URL =
+  "https://api.rss2json.com/v1/api.json?rss_url=" +
+  encodeURIComponent(RSS_URL);
+
+const newsList = document.getElementById("news-list");
+const newsStatus = document.getElementById("news-status");
+
+function escapeHTML(value) {
+  return String(value || "").replace(/[&<>"']/g, function(char) {
+    return {
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#039;"
+    }[char];
+  });
+}
+
+function formatDate(dateString) {
+  const date = new Date(dateString);
+
+  if (Number.isNaN(date.getTime())) {
+    return dateString || "";
+  }
+
+  return new Intl.DateTimeFormat("bn-BD", {
+    year: "numeric",
+    month: "long",
+    day: "numeric"
+  }).format(date);
+}
+
+function cleanDescription(html) {
+  const temp = document.createElement("div");
+  temp.innerHTML = html || "";
+
+  const text = temp.textContent || temp.innerText || "";
+  return text.trim().replace(/\s+/g, " ").slice(0, 300);
+}
+
+function createNewsCard(item) {
+  const card = document.createElement("article");
+  card.className = "news-card";
+
+  const title = escapeHTML(item.title);
+  const description = escapeHTML(cleanDescription(item.description));
+  const date = escapeHTML(formatDate(item.pubDate));
+  const link = item.link || "#";
+
+  card.innerHTML = `
+    <span class="news-date">${date}</span>
+    <h2>${title}</h2>
+    <p>${description || "এই সংবাদের বিস্তারিত জানতে মূল সংবাদটি দেখুন।"}</p>
+
+    <a class="news-link"
+       href="${escapeHTML(link)}"
+       target="_blank"
+       rel="noopener noreferrer">
+       সম্পূর্ণ সংবাদ পড়ুন →
+    </a>
+
+    <div class="news-source">
+      Google News-এর মাধ্যমে সংগৃহীত
+    </div>
+  `;
+
+  return card;
+}
+
+async function loadLatestNews() {
+  try {
+    const response = await fetch(API_URL, {
+      method: "GET",
+      cache: "no-store"
+    });
+
+    if (!response.ok) {
+      throw new Error("News service unavailable");
+    }
+
+    const data = await response.json();
+
+    if (!data.items || data.items.length === 0) {
+      throw new Error("No news found");
+    }
+
+    newsList.innerHTML = "";
+
+    data.items.slice(0, 10).forEach(function(item) {
+      newsList.appendChild(createNewsCard(item));
+    });
+
+    newsStatus.innerHTML =
+      "<strong>সর্বশেষ সংবাদ</strong> — নতুন খবর পেতে পেজটি Refresh করুন।";
+
+  } catch (error) {
+    console.error("Latest News Error:", error);
+
+    newsStatus.innerHTML =
+      '<span class="news-error">এই মুহূর্তে স্বয়ংক্রিয়ভাবে সংবাদ লোড করা যাচ্ছে না। কিছুক্ষণ পরে আবার চেষ্টা করুন।</span>';
+
+    newsList.innerHTML = `
+      <article class="news-card">
+        <h2>সংবাদ সেবা সাময়িকভাবে unavailable</h2>
+        <p>
+          ইন্টারনেট সংযোগ অথবা নিউজ সার্ভিসে সাময়িক সমস্যা হতে পারে।
+          অনুগ্রহ করে কিছুক্ষণ পরে পেজটি Refresh করুন।
+        </p>
+      </article>
+    `;
+  }
+}
+
+loadLatestNews();
+</script>
+
+</body>
+</html>
