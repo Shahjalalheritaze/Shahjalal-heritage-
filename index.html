@@ -83,9 +83,10 @@
     display:none; background:none; border:1px solid var(--line); border-radius:var(--radius);
     font-size:1.3rem; padding:6px 12px; cursor:pointer; color:var(--emerald-deep);
   }
-  .menu{ display:flex; gap:28px; }
+  .menu{ display:flex; gap:22px; flex-wrap:wrap; }
   .menu a{
     font-size:.94rem; color:var(--ink); position:relative; padding:6px 0;
+    white-space:nowrap;
   }
   .menu a::after{
     content:""; position:absolute; left:0; right:0; bottom:0; height:1px;
@@ -101,7 +102,7 @@
       border-bottom:1px solid var(--line);
       max-height:0; overflow:hidden; transition:max-height .3s ease;
     }
-    .menu.open{ max-height:340px; }
+    .menu.open{ max-height:520px; overflow-y:auto; }
     .menu a{ padding:14px 24px; border-top:1px solid var(--line); }
   }
 
@@ -237,9 +238,13 @@
       <a href="index.html">হোম</a>
       <a href="biography.html">জীবনী</a>
       <a href="history.html">ইতিহাস</a>
+      <a href="culture.html">সংস্কৃতি</a>
       <a href="gallery.html">গ্যালারি</a>
+      <a href="documents.html">দলিলপত্র</a>
       <a href="visit.html">দরগাহ</a>
+      <a href="news.html">সংবাদ</a>
       <a href="sources.html">তথ্যসূত্র</a>
+      <a href="contact.html">যোগাযোগ</a>
     </nav>
   </div>
 </header>
@@ -294,6 +299,18 @@
           <h3>📷 গ্যালারি</h3>
           <p>লাইসেন্সযুক্ত দরগাহের ছবি ও ক্রেডিট।</p>
         </div>
+        <div class="card">
+          <h3>🕋 সংস্কৃতি</h3>
+          <p>সিলেটের ধর্মীয় ও সাংস্কৃতিক ঐতিহ্য।</p>
+        </div>
+        <div class="card">
+          <h3>📄 দলিলপত্র</h3>
+          <p>ঐতিহাসিক নথি ও সূত্রভিত্তিক তথ্য।</p>
+        </div>
+        <div class="card">
+          <h3>📰 সংবাদ</h3>
+          <p>সাম্প্রতিক আপডেট ও প্রাসঙ্গিক খবর।</p>
+        </div>
       </div>
     </div>
   </section>
@@ -307,10 +324,11 @@
     </div>
     <div>
       <h3>মেনু</h3>
-      <p><a href="biography.html">জীবনী</a> · <a href="history.html">ইতিহাস</a> · <a href="gallery.html">গ্যালারি</a></p>
+      <p><a href="biography.html">জীবনী</a> · <a href="history.html">ইতিহাস</a> · <a href="culture.html">সংস্কৃতি</a> · <a href="gallery.html">গ্যালারি</a> · <a href="documents.html">দলিলপত্র</a> · <a href="visit.html">দরগাহ</a> · <a href="news.html">সংবাদ</a></p>
     </div>
     <div>
-      <h3>ছবির লাইসেন্স</h3>
+      <h3>যোগাযোগ ও তথ্যসূত্র</h3>
+      <p><a href="sources.html">তথ্যসূত্র</a> · <a href="contact.html">যোগাযোগ করুন</a></p>
       <p>Wikimedia Commons-এর Creative Commons ছবির ক্রেডিট sources পেজে আছে।</p>
     </div>
   </div>
