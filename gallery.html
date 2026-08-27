@@ -1,1 +1,191 @@
-<!doctype html><html lang="bn"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>gallery.html</title><link rel="stylesheet" href="style.css"></head><body><div class="top"><div class="container"><span>بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</span><span>জীবন • ইতিহাস • ঐতিহ্য</span></div></div><header><div class="container nav"><a class="brand" href="index.html"><span class="logo">ﷲ</span><span><b>হযরত শাহজালাল (রহ.)</b><small>জীবন ও ঐতিহ্য</small></span></a><button class="hamb" id="hamb">☰</button><nav class="menu" id="menu"><a href="index.html">হোম</a><a href="biography.html">জীবনী</a><a href="history.html">ইতিহাস</a><a href="gallery.html">গ্যালারি</a><a href="visit.html">দরগাহ</a><a href="sources.html">তথ্যসূত্র</a></nav></div></header><main><section class="section"><div class="container"><div class="title"><h2>দরগাহের গ্যালারি</h2><p>Creative Commons লাইসেন্সযুক্ত ছবির সংগ্রহ</p></div><div class="gallery"><figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/The_Shrine_in_Sylhet.jpg?width=1600"><figcaption>The Shrine in Sylhet — KanizF, CC BY-SA 4.0</figcaption></figure><figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Shrine_of_Hazrat_Shah_Jalal_Sylhet_Bangladesh_43.JPG?width=1400"><figcaption>Shrine of Hazrat Shah Jalal — Shahnoor Habib Munmun, Creative Commons</figcaption></figure><figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Shah_Jalal_Mazar_at_Sylhet.JPG?width=1400"><figcaption>Shah Jalal Mazar at Sylhet — Wikimedia Commons</figcaption></figure><figure><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Shrine_of_Hazrat_Shah_Jalal_%2828555626625%29.jpg?width=1400"><figcaption>Shrine of Hazrat Shah Jalal — David Stanley, CC BY 2.0</figcaption></figure></div></div></section></main><footer><div class="container foot"><div><h3>হযরত শাহজালাল (রহ.)</h3><p>জীবন, ইতিহাস ও ঐতিহ্যের একটি স্বাধীন ওয়েবসাইট।</p></div><div><h3>মেনু</h3><p><a href="biography.html">জীবনী</a> · <a href="history.html">ইতিহাস</a> · <a href="gallery.html">গ্যালারি</a></p></div><div><h3>ছবির লাইসেন্স</h3><p>Wikimedia Commons-এর Creative Commons ছবির ক্রেডিট sources পেজে আছে।</p></div></div><div class="container copy">© <span class="year"></span> Shahjalal Heritage</div></footer><script src="script.js"></script></body></html>
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="হযরত শাহজালাল (রহ.)-এর দরগাহের ছবি ও ঐতিহ্যের গ্যালারি।">
+<title>গ্যালারি | হযরত শাহজালাল (রহ.)</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.gallery-wrap{max-width:1100px;margin:30px auto;padding:0 18px}
+.gallery-title{text-align:center;margin-bottom:25px}
+.gallery-title h1{color:#14392a;margin-bottom:8px}
+.gallery-title p{color:#666}
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.gallery figure{margin:0;background:#fff;border:1px solid #d9c78a;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.gallery img{display:block;width:100%;height:220px;object-fit:cover}
+.gallery figcaption{padding:12px;color:#444;line-height:1.6}
+.status{padding:14px;text-align:center;background:#fff;border:1px solid #d9c78a;border-radius:10px;margin-bottom:20px}
+</style>
+</head>
+<body>
+
+<div class="top">
+  <div class="container">
+    <span>بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</span>
+    <span>জীবন • ইতিহাস • ঐতিহ্য</span>
+  </div>
+</div>
+
+<header>
+  <div class="container nav">
+    <a class="brand" href="index.html">
+      <span class="logo">ﷲ</span>
+      <span><b>হযরত শাহজালাল (রহ.)</b><small>জীবন ও ঐতিহ্য</small></span>
+    </a>
+    <button class="hamb" id="hamb">☰</button>
+    <nav class="menu" id="menu">
+      <a href="index.html">হোম</a>
+      <a href="biography.html">জীবনী</a>
+      <a href="history.html">ইতিহাস</a>
+      <a href="gallery.html">গ্যালারি</a>
+      <a href="visit.html">দরগাহ</a>
+      <a href="sources.html">তথ্যসূত্র</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="section">
+<div class="gallery-wrap">
+  <div class="gallery-title">
+    <h1>দরগাহের গ্যালারি</h1>
+    <p>পুরোনো ছবির সঙ্গে এখন <strong>gallery</strong> folder-এ নতুন ছবি Upload করলেই এখানে স্বয়ংক্রিয়ভাবে দেখানো হবে।</p>
+  </div>
+
+  <div id="status" class="status">গ্যালারি লোড হচ্ছে...</div>
+  <div id="gallery" class="gallery"></div>
+</div>
+</section>
+</main>
+
+<footer>
+  <div class="container foot">
+    <div>
+      <h3>হযরত শাহজালাল (রহ.)</h3>
+      <p>জীবন, ইতিহাস ও ঐতিহ্যের একটি স্বাধীন ওয়েবসাইট।</p>
+    </div>
+    <div>
+      <h3>মেনু</h3>
+      <p><a href="biography.html">জীবনী</a> · <a href="history.html">ইতিহাস</a> · <a href="gallery.html">গ্যালারি</a></p>
+    </div>
+    <div>
+      <h3>ছবির লাইসেন্স</h3>
+      <p>Wikimedia Commons ছবির ক্রেডিট ছবির নিচে দেওয়া আছে।</p>
+    </div>
+  </div>
+  <div class="container copy">© <span class="year"></span> Shahjalal Heritage</div>
+</footer>
+
+<script src="script.js"></script>
+
+<script>
+/*
+  SMART LOCAL GALLERY
+  ----------------------------------------------------
+  ভবিষ্যতে শুধু repository-এর /gallery/ folder-এ ছবি
+  Upload + Commit করলেই এই পেজ নতুন ছবিগুলো খুঁজে দেখাবে।
+
+  GitHub Pages-এর project URL থেকে owner/repository নিজে
+  নির্ণয় করা হয়। তাই আলাদা করে username/repository লিখতে হবে না।
+*/
+
+const galleryBox = document.getElementById("gallery");
+const statusBox = document.getElementById("status");
+
+const oldPhotos = [
+  {
+    src: "https://commons.wikimedia.org/wiki/Special:FilePath/The_Shrine_in_Sylhet.jpg?width=1600",
+    caption: "The Shrine in Sylhet — KanizF, CC BY-SA 4.0"
+  },
+  {
+    src: "https://commons.wikimedia.org/wiki/Special:FilePath/Shrine_of_Hazrat_Shah_Jalal_Sylhet_Bangladesh_43.JPG?width=1400",
+    caption: "Shrine of Hazrat Shah Jalal — Shahnoor Habib Munmun, Creative Commons"
+  },
+  {
+    src: "https://commons.wikimedia.org/wiki/Special:FilePath/Shah_Jalal_Mazar_at_Sylhet.JPG?width=1400",
+    caption: "Shah Jalal Mazar at Sylhet — Wikimedia Commons"
+  },
+  {
+    src: "https://commons.wikimedia.org/wiki/Special:FilePath/Shrine_of_Hazrat_Shah_Jalal_%2828555626625%29.jpg?width=1400",
+    caption: "Shrine of Hazrat Shah Jalal — David Stanley, CC BY 2.0"
+  }
+];
+
+function addPhoto(src, caption) {
+  const figure = document.createElement("figure");
+  const img = document.createElement("img");
+  const cap = document.createElement("figcaption");
+
+  img.src = src;
+  img.alt = caption || "হযরত শাহজালাল (রহ.)-এর গ্যালারি ছবি";
+  img.loading = "lazy";
+  cap.textContent = caption || "নতুন গ্যালারি ছবি";
+
+  figure.appendChild(img);
+  figure.appendChild(cap);
+  galleryBox.appendChild(figure);
+}
+
+oldPhotos.forEach(photo => addPhoto(photo.src, photo.caption));
+
+async function loadLocalGallery() {
+  const host = location.hostname;
+  const parts = location.pathname.split("/").filter(Boolean);
+
+  if (!host.endsWith(".github.io") || parts.length === 0) {
+    statusBox.textContent =
+      "পুরোনো ছবি দেখানো হয়েছে। Local gallery auto-load করতে GitHub Pages project URL ব্যবহার করুন।";
+    return;
+  }
+
+  const owner = host.split(".")[0];
+  const repo = parts[0];
+
+  const api =
+    "https://api.github.com/repos/" +
+    encodeURIComponent(owner) +
+    "/" +
+    encodeURIComponent(repo) +
+    "/contents/gallery";
+
+  try {
+    const response = await fetch(api, {
+      headers: { "Accept": "application/vnd.github+json" }
+    });
+
+    if (!response.ok) {
+      throw new Error("gallery folder not found");
+    }
+
+    const files = await response.json();
+
+    const images = files.filter(file =>
+      file.type === "file" &&
+      /\.(jpg|jpeg|png|gif|webp|avif)$/i.test(file.name)
+    );
+
+    images.forEach(file => {
+      addPhoto(
+        "gallery/" + encodeURIComponent(file.name),
+        file.name
+      );
+    });
+
+    statusBox.textContent =
+      images.length > 0
+        ? "গ্যালারিতে মোট " + (oldPhotos.length + images.length) + "টি ছবি আছে।"
+        : "gallery folder-এ এখনো কোনো নতুন ছবি নেই।";
+
+  } catch (error) {
+    console.error(error);
+    statusBox.textContent =
+      "পুরোনো ছবি দেখানো হয়েছে। Local gallery folder-এর ছবি এখন লোড করা যায়নি।";
+  }
+}
+
+loadLocalGallery();
+</script>
+
+</body>
+</html>
